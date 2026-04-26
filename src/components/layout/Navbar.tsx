@@ -20,7 +20,7 @@ const Navbar = () => {
         onClick={() => scrollTo({ top: 0, behavior: "smooth" })}
       >
         <img
-          src="/src/assets/images/logo.webp"
+          src="/images/logo.webp"
           alt="Logo"
           className="w-8 h-8"
           loading="lazy"

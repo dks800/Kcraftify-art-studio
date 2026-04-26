@@ -35,7 +35,7 @@ const Lightbox = ({ products, currentIndex, onClose }: Props) => {
           aria-label="Close"
           name="close"
           onClick={onClose}
-          className="absolute top-4 right-4 text-white text-xl"
+          className="absolute top-4 right-4 text-white text-xl cursor-pointer"
         >
           ✕
         </button>
@@ -70,7 +70,7 @@ const Lightbox = ({ products, currentIndex, onClose }: Props) => {
             name="enquire-whatsapp"
             aria-label="enquire-whatsapp"
             onClick={() => openWhatsApp(product.name, true)}
-            className="mt-3 bg-[#D4AF37] text-black px-5 py-2 rounded-full text-sm"
+            className="mt-3 bg-[#D4AF37] text-black px-5 py-2 rounded-full text-sm cursor-pointer hover:bg-[#D4AF37]/90"
           >
             Enquire on WhatsApp
           </button>
@@ -78,10 +78,10 @@ const Lightbox = ({ products, currentIndex, onClose }: Props) => {
 
         {/* Navigation Buttons (optional for desktop) */}
         <div className="hidden md:flex justify-between w-full max-w-md mt-4">
-          <button onClick={prev} className="text-white" name="previous" aria-label="previous" >
+          <button onClick={prev} className="text-white cursor-pointer" name="previous" aria-label="previous" >
             ←
           </button>
-          <button onClick={next} className="text-white" name="next" aria-label="next">
+          <button onClick={next} className="text-white cursor-pointer" name="next" aria-label="next">
             →
           </button>
         </div>

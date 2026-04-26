@@ -11,7 +11,7 @@ const ContactUs = () => {
       <FadeIn>
         <div className="flex flex-col items-center gap-4 mb-6">
           <img
-            src="/src/assets/images/connect.webp"
+            src="/images/connect.webp"
             alt="Logo"
             className="w-28 h-28"
             loading="lazy"
@@ -34,7 +34,7 @@ const ContactUs = () => {
           aria-label="Chat on WhatsApp"
           name="chat-on-whatsapp"
           onClick={() => openWhatsApp("Hello, I want to place an order")}
-          className="flex items-center gap-2 mx-auto bg-[#25D366] text-black px-6 py-3 rounded-full gold-glow"
+          className="flex items-center gap-2 mx-auto bg-[#25D366] text-black px-6 py-3 rounded-full gold-glow cursor-pointer"
         >
           <FaWhatsapp size={30} />
           Chat on WhatsApp

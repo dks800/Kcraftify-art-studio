@@ -30,7 +30,7 @@ const Gallery = () => {
       <FadeIn>
         <div className="flex flex-col items-center gap-4 mb-6">
           <img
-            src="/src/assets/images/logo.webp"
+            src="/images/logo.webp"
             alt="Logo"
             className="w-25 h-25"
             loading="lazy"

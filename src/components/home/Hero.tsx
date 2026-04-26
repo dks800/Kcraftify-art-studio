@@ -1,40 +1,40 @@
 import { motion } from "framer-motion";
 import { openWhatsApp } from "../../utils/whatsapp";
 import { useEffect, useState } from "react";
+import useIsMobile from "../../hooks/useIsMobile";
 
 const Hero = () => {
   const [loadVideo, setLoadVideo] = useState(false);
+  const isMobile = useIsMobile();
 
   useEffect(() => {
     setTimeout(() => setLoadVideo(true), 1000);
   }, []);
   return (
     <section className="relative h-screen flex items-center justify-center text-center bg-white">
-      {/* Desktop Video */}
-      {loadVideo ? (
+      {isMobile && loadVideo ? (
         <video
           autoPlay
           loop
           muted
           playsInline
-          poster="/src/assets/images/logo.webp"
-          className="hidden md:block absolute inset-0 w-full h-full object-contain transition"
-        >
-          <source src="/src/assets/videos/hero-web.mp4" type="video/mp4" />
-        </video>
-      ) : null}
-
-      {/* Mobile Video */}
-      {loadVideo ? (
-        <video
-          autoPlay
-          loop
-          muted
-          playsInline
-          poster="/src/assets/images/logo.webp"
+          poster="/images/logo.webp"
           className="block md:hidden absolute inset-0 w-full h-full object-cover transition"
         >
-          <source src="/src/assets/videos/hero-mobile.mp4" type="video/mp4" />
+          <source src="/videos/hero-mobile.mp4" type="video/mp4" />
+        </video>
+      ) : null}
+      {/* Desktop Video */}
+      {!isMobile && loadVideo ? (
+        <video
+          autoPlay
+          loop
+          muted
+          playsInline
+          poster="/images/logo.webp"
+          className="hidden md:block absolute inset-0 w-full h-full object-contain transition"
+        >
+          <source src="/videos/hero-web.mp4" type="video/mp4" />
         </video>
       ) : null}
 

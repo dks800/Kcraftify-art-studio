@@ -56,7 +56,7 @@ const Testimonials = () => {
       <FadeIn>
         <div className="flex flex-col items-center gap-4 mb-6">
           <img
-            src="/src/assets/images/feedback.webp"
+            src="/images/feedback.webp"
             alt="Logo"
             className="w-30 h-25"
             loading="lazy"
