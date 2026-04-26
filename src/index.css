@@ -1,0 +1,20 @@
+@import "tailwindcss";
+
+/* Custom Theme */
+:root {
+  --gold: #d4af37;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+.gold-glow {
+  box-shadow: 0 0 20px rgba(212, 175, 55, 0.25);
+}
+
+body {
+  background-color: #0b0b0c;
+  color: white;
+  font-family: "Inter", sans-serif;
+}
