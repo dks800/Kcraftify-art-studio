@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useMemo } from "react";
 import {
   products,
   type Product,
@@ -10,17 +10,27 @@ import FadeIn from "../common/FadeIn";
 
 const categories: (ProductCategory | "All")[] = [
   "All",
-  "Coasters",
-  "Wall Art",
-  "Jewelry",
+  "Jewellery",
+  "Keychains",
+  "Photo Frames",
+  "Pooja Platters",
+  "Rakhi",
+  "Varmala Preservation",
 ];
 
 const Gallery = () => {
   const [active, setActive] = useState<(typeof categories)[number]>("All");
   const [selectedIndex, setSelectedIndex] = useState<number | null>(null);
 
-  const filtered: Product[] =
-    active === "All" ? products : products.filter((p) => p.category === active);
+  const filtered: Product[] = useMemo(
+    () => (active === "All" ? products : products.filter((p) => p.category === active)),
+    [active],
+  );
+
+  const clickHandlers = useMemo(
+    () => filtered.map((_, idx) => () => setSelectedIndex(idx)),
+    [filtered],
+  );
 
   return (
     <section
@@ -44,7 +54,7 @@ const Gallery = () => {
 
       {/* Filters */}
       <FadeIn delay={0.1}>
-        <div className="flex gap-3 overflow-x-auto mb-6 items-center justify-center">
+        <div className="flex gap-3 overflow-x-auto mb-6 items-center justify-center flex-wrap">
           {categories.map((cat) => (
             <button
               aria-label={cat}
@@ -65,12 +75,13 @@ const Gallery = () => {
 
       {/* Grid */}
       <FadeIn delay={0.2}>
-        <div className="grid grid-cols-2 gap-3">
+        <div className="grid grid-cols-2 md:grid-cols-8 gap-3">
           {filtered.map((product, index) => (
             <ProductCard
-              key={product.id}
+              key={`${product.category}-${product.id}`}
               product={product}
-              onClick={() => setSelectedIndex(index)}
+              index={index}
+              onClick={clickHandlers[index]}
             />
           ))}
         </div>

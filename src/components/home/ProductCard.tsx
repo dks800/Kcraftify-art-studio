@@ -1,12 +1,14 @@
+import { memo } from "react";
 import { motion } from "framer-motion";
 import type { Product } from "../../data/products";
 
 interface Props {
   product: Product;
   onClick: () => void;
+  index: number;
 }
 
-const ProductCard = ({ product, onClick }: Props) => {
+const ProductCard = ({ product, onClick, index }: Props) => {
   return (
     <motion.div
       whileTap={{ scale: 0.96 }}
@@ -32,10 +34,12 @@ const ProductCard = ({ product, onClick }: Props) => {
       <div className="absolute bottom-2 left-2 right-2">
         <p className="text-xs text-white/90">{product.name}</p>
 
-        <span className="text-[10px] text-[#D4AF37]">Limited Handmade</span>
+        {index % 2 === 0 && (
+          <span className="text-[10px] text-[#D4AF37]">Limited Handmade</span>
+        )}
       </div>
     </motion.div>
   );
 };
 
-export default ProductCard;
+export default memo(ProductCard);
